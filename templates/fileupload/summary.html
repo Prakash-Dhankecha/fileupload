@@ -1,0 +1,31 @@
+{% extends 'fileupload/base.html' %}
+
+{% block title %}Summary Report{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title text-center">Summary Report</h1>
+            <table class="table table-striped mt-3">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">State</th>
+                        <th scope="col">DPD</th>
+                        <th scope="col">Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in summary.itertuples %}
+                    <tr>
+                        <td>{{ row.cust_state }}</td>
+                        <td>{{ row.dpd }}</td>
+                        <td>{{ row.Count }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
